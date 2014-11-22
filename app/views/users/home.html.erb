@@ -1,14 +1,5 @@
   <h1>Welcome to the Private Events App</h1>
 
-<% if logged_in? %>
-  <p>Welcome </p><p><%= current_user.name %></p>
-  <%= link_to "Profile", current_user %>
-  <%= link_to "Log out", logout_path, method: "delete" %>
-
-<% else %>
-  <%= link_to "Log in", login_path %>
-  <%= link_to "Sign up now!", new_user_path %>
-<% end %>
 
 
 
