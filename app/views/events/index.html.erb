@@ -1,9 +1,19 @@
 <h1>All events</h1>
-<ul>
 
-  <% @events.each do |event| %>
+
+<h2>Past events</h2>
+<ul>
+ <% @past_events.each do |event| %>
   <li>
-    <p>Description: <%= event.description %>, Date: <%= link_to event.date, event %>, Creator: <%= link_to event.creator.name, event.creator %></p>
+    <p>Description: <%= event.description %>, Date: <%= link_to event.date, event %>, Creator: <%= link_to event.creator.name, event.creator %></p></p>
+  </li>
+  <% end %>
+</ul>
+<h2>Future events</h2>
+<ul>
+ <% @future_events.each do |event| %>
+  <li>
+    <p>Description: <%= event.description %>, Date: <%= link_to event.date, event %>, Creator: <%= link_to event.creator.name, event.creator %></p></p>
   </li>
   <% end %>
 </ul>

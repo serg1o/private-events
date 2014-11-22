@@ -2,4 +2,14 @@
 
  <p>Description: <%= @event.description %>, Date: <%= @event.date %>, Creator: <%= link_to @event.creator.name, @event.creator %></p>
 
+<h1>Event attendees:</h1>
+<ul>
+
+  <% @event.attendees.each do |att| %>
+  <li>
+    <p>Name: <%= att.name %></p>
+  </li>
+  <% end %>
+</ul>
+
 

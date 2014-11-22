@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    @event.date ||= Time.now
+    @event.date ||= Time.now #+ 30.days
     if @event.save
       flash[:info] = "New event created."
       redirect_to root_url
@@ -16,7 +16,9 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+#    @events = Event.all
+    @future_events = Event.future
+    @past_events = Event.past
   end
 
   def show
@@ -26,6 +28,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:description, :date, :creator)
+    params.require(:event).permit(:description, :date)
   end
 end
